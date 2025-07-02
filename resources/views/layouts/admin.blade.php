@@ -38,7 +38,11 @@
 
     @livewireScripts
 
+    {{-- Flowbite --}}
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    {{-- Font-Awesome --}}
+    <script src="https://kit.fontawesome.com/ff5c09116c.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
