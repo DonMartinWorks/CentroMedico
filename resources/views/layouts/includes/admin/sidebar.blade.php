@@ -6,59 +6,6 @@
             'route' => route('admin.dashboard'),
             'active' => request()->routeIs('admin.dashboard'),
         ],
-
-        [
-            'name' => __('Accepted'),
-            'icon' => 'fa-solid fa-headphones',
-            'route' => '#',
-            'active' => false,
-        ],
-
-        [
-            'header' => __('Pages Administration'),
-        ],
-
-        [
-            'name' => __('Dashboard'),
-            'icon' => 'fa-solid fa-gauge-high',
-            'route' => '#',
-            'active' => false,
-            'submenu' => [
-                [
-                    'name' => __('This device'),
-                    'route' => '#',
-                    'active' => false,
-                ],
-                [
-                    'name' => __('Confirm Password'),
-                    'route' => '#',
-                    'active' => false,
-                ],
-            ],
-        ],
-
-        [
-            'header' => __('Your email address is unverified.'),
-        ],
-
-        [
-            'name' => __('Dashboard'),
-            'icon' => 'fa-solid fa-gauge-high',
-            'route' => '#',
-            'active' => true,
-            'submenu' => [
-                [
-                    'name' => __('Accepted'),
-                    'route' => '#',
-                    'active' => false,
-                ],
-                [
-                    'name' => __('Associate'),
-                    'route' => '#',
-                    'active' => true,
-                ],
-            ],
-        ],
     ];
 @endphp
 

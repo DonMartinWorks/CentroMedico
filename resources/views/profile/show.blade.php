@@ -1,4 +1,12 @@
-<x-admin-layout>
+<x-admin-layout title="{{ __('Profile') }}" :breadcrumbs="[
+    [
+        'name' => __('Dashboard'),
+        'route' => route('admin.dashboard'),
+    ],
+    [
+        'name' => __('Profile'),
+    ],
+]">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}

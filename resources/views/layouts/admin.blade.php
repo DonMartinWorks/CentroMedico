@@ -28,6 +28,8 @@
 
     <div class="p-4 sm:ml-64">
         <div class="mt-14 w-full">
+            @include('layouts.includes.admin.breadcrumb')
+
             <section class="bg-stone-50 rounded-md shadow-lg px-2 py-4 border">
                 {{ $slot }}
             </section>
