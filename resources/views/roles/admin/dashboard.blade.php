@@ -7,5 +7,4 @@
         'name' => __('Admin Dashboard'),
     ],
 ]">
-    <x-wire-button>{{ __('Admin Dashboard') }}</x-wire-button>
 </x-admin-layout>
