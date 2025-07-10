@@ -6,6 +6,17 @@
             'route' => route('admin.dashboard'),
             'active' => request()->routeIs('admin.dashboard'),
         ],
+
+        [
+            'header' => __('Management')
+        ],
+
+        [
+            'name' => __('Roles and Permissions'),
+            'icon' => 'fas fa-user-shield',
+            'route' => route('admin.roles.index'),
+            'active' => request()->routeIs('admin.roles.*'),
+        ]
     ];
 @endphp
 
