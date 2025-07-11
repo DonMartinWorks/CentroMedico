@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Traits\ToastsMessages;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -80,8 +82,21 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy(Role $role): RedirectResponse
     {
-        //
+        $model = 'role';
+
+        try {
+            $role->delete();
+
+            $this->deletedMessage(__('Role'), $role->name);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            // Log the error to Laravel's log file
+            Log::error('Error deleting' . $model . ': ' . $e->getMessage());
+
+            return redirect()->back();
+        }
     }
 }
