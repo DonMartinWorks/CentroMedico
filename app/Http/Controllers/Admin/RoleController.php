@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Traits\ToastsMessages;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -10,6 +11,8 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    use ToastsMessages;
+
     /**
      * Display a listing of the resource.
      */
@@ -36,6 +39,13 @@ class RoleController extends Controller
         ]);
 
         Role::create(['name' => $request->name]);
+
+        // session()->flash('swal', [
+        //     'icon' => 'success',
+        //     'title'=> __('Done'),
+        //     'text' => __('Role') . ': ' . $request->name . ' ' . __('It was created successfully.')
+        // ]);
+        $this->createdMessage(__('Role'), $request->name);
 
         return redirect()->route('admin.roles.index');
     }

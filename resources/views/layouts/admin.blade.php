@@ -50,6 +50,8 @@
 
     {{-- Font-Awesome --}}
     <script src="https://kit.fontawesome.com/ff5c09116c.js" crossorigin="anonymous"></script>
+
+    <x-libraries.sweet-alert />
 </body>
 
 </html>
