@@ -32,9 +32,7 @@
 
             <!-- Page Heading -->
             @if (isset($action))
-                <div class="m-2 flex justify-end">
-                    {{ $action }}
-                </div>
+                {{ $action }}
             @endif
 
             <section class="bg-stone-50 rounded-md shadow-lg px-2 py-4 border">

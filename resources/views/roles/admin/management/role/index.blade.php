@@ -8,10 +8,12 @@
     ],
 ]">
     <x-slot name="action">
-        <x-wire-button light md positive title="{{ __('Create :name', ['name' => __('Role')]) }}"
-            href="{{ route('admin.roles.create') }}">
-            <i class="fas fa-plus mr-2"></i>{{__('Create :name', ['name' => __('Role')])}}
-        </x-wire-button>
+        <x-display.end>
+            <x-wire-button light md positive title="{{ __('Create :name', ['name' => __('Role')]) }}"
+                href="{{ route('admin.roles.create') }}">
+                <i class="fas fa-plus mr-2"></i>{{__('Create :name', ['name' => __('Role')])}}
+            </x-wire-button>
+        </x-display.end>
     </x-slot>
 
     @livewire('admin.datatables.role-datatables')
