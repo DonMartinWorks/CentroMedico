@@ -58,8 +58,14 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role): View
+    public function edit(Role $role): View|RedirectResponse
     {
+        if ($role->id >= 1 && $role->id <= 4) {
+            $this->errorMessage(__('Role') . ' ' . $role->name . ' ' . __('Denied'));
+
+            return redirect()->route('admin.roles.index');
+        }
+
         return view('roles.admin.management.role.edit', compact('role'));
     }
 
@@ -85,6 +91,12 @@ class RoleController extends Controller
     public function destroy(Role $role): RedirectResponse
     {
         $model = 'role';
+
+        if ($role->id >= 1 && $role->id <= 4) {
+            $this->errorMessage(__('Role') . ' ' . $role->name . ' ' . __('Denied'));
+
+            return redirect()->route('admin.roles.index');
+        }
 
         try {
             $role->delete();

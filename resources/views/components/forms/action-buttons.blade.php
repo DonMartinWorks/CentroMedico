@@ -6,7 +6,7 @@
         <i class="fas fa-pencil-alt"></i>
     </x-wire-button>
 
-    <form action="{{ $deleteRoute }}" method="POST">
+    <form action="{{ $deleteRoute }}" method="POST" class="delete-form">
         @csrf
         @method('DELETE')
         <x-wire-button light md negative title="{{ __('Delete :name', ['name' => $resourceName . ' ' . $model->name]) }}"

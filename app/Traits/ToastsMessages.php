@@ -21,6 +21,24 @@ trait ToastsMessages
         ]);
     }
 
+    public function errorMessage(string $message): void
+    {
+        session()->flash('swal', [
+            'icon' => 'error',
+            'title' => __('Error'),
+            'text' => $message
+        ]);
+    }
+
+    public function warningMessage(string $message): void
+    {
+        session()->flash('swal', [
+            'icon' => 'warning',
+            'title' => __('Warning'),
+            'text' => $message
+        ]);
+    }
+
     /**
      * Generates a success message for a creation operation.
      *
