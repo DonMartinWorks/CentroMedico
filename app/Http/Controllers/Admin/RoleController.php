@@ -35,16 +35,11 @@ class RoleController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'unique:roles,name']
+            'name' => ['required', 'string', 'max:100', 'unique:roles,name']
         ]);
 
         Role::create(['name' => $request->name]);
 
-        // session()->flash('swal', [
-        //     'icon' => 'success',
-        //     'title'=> __('Done'),
-        //     'text' => __('Role') . ': ' . $request->name . ' ' . __('It was created successfully.')
-        // ]);
         $this->createdMessage(__('Role'), $request->name);
 
         return redirect()->route('admin.roles.index');
@@ -69,9 +64,17 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Role $role): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:100', 'unique:roles,name,' . $role->id]
+        ]);
+
+        $role->update(['name' => $request->name]);
+
+        $this->updatedMessage(__('Role'), $request->name);
+
+        return redirect()->route('admin.roles.index');
     }
 
     /**
